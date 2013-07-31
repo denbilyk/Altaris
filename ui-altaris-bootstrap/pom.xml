@@ -10,7 +10,7 @@
 
     <artifactId>ui-altaris-bootstarap</artifactId>
     <packaging>war</packaging>
-    <name>Vaadin Web Application</name>
+    <name>Altaris UI</name>
 
     <dependencies>
         <dependency>
