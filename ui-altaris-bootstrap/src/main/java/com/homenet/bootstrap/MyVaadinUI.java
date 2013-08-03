@@ -18,7 +18,7 @@ public class MyVaadinUI extends UI
 {
 
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = MyVaadinUI.class, widgetset = "com.homenet.bootstrap.AppWidgetSet")
+    @VaadinServletConfiguration(productionMode = false, ui = MyVaadinUI.class, widgetset = "com.homenet.bootstrap.BaseWidgetSet")
     public static class Servlet extends VaadinServlet {
     }
 
