@@ -6,11 +6,8 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
+import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 
 @Theme("altaris")
 @SuppressWarnings("serial")
@@ -24,17 +21,30 @@ public class MyVaadinUI extends UI
 
     @Override
     protected void init(VaadinRequest request) {
-        final VerticalLayout layout = new VerticalLayout();
-        layout.setMargin(true);
-        setContent(layout);
-        
-        Button button = new Button("Click Me");
-        button.addClickListener(new Button.ClickListener() {
-            public void buttonClick(ClickEvent event) {
-                layout.addComponent(new Label("Thank you for clicking"));
-            }
-        });
-        layout.addComponent(button);
+        final CssLayout basic = new CssLayout();
+        basic.setStyleName("basic-layout");
+        setContent(basic);
+        basic.setSizeFull();
+        basic.addComponent(getLoginForm());
     }
 
+
+    private Component getLoginForm(){
+        Panel panel = new Panel("Login");
+        panel.setSizeUndefined();
+
+        CustomLayout custom = new CustomLayout("login-form");
+        custom.addStyleName("customlayoutexample");
+        panel.setContent(custom);
+
+        TextField username = new TextField();
+        custom.addComponent(username, "username");
+
+        TextField password = new TextField();
+        custom.addComponent(password, "password");
+
+        Button ok = new Button("Login");
+        custom.addComponent(ok, "okbutton");
+        return panel;
+    }
 }
