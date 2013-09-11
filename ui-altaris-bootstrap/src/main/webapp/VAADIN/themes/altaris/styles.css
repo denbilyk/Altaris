@@ -7003,3 +7003,21 @@ body .altaris.v-app .v-app-loading {
 	background: transparent repeat-x;
 	background-image: url(../reindeer/window/img/black/content-bg.png);/** sprite-ref: black-verticals; sprite-alignment: repeat */
 }
+
+.altaris body {
+	margin: 0;
+	padding: 0;
+	background: #9d9d9d;
+}
+
+.altaris #container {
+	width: 690px;
+	height: 100%;
+	margin: 0 auto;
+	overflow: visible;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -345px;
+	background: #ffffff;
+}
