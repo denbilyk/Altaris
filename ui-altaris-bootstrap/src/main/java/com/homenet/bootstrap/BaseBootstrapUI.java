@@ -19,16 +19,16 @@ public class BaseBootstrapUI extends UI
     }
 
     private final CssLayout baseView = new CssLayout();
+    private final CustomLayout baseLayout = new CustomLayout("baseLayout");
 
     @Override
     protected void init(VaadinRequest request) {
-        baseView.setSizeFull();
+        baseView.setSizeUndefined();
         baseView.setId("container");
         setContent(baseView);
+        baseView.addComponent(baseLayout);
+        baseLayout.setStyleName("a-base-layout");
     }
-
-
-
 
     private Component getLoginForm(){
         Panel panel = new Panel("Login");

@@ -4,8 +4,12 @@
 /* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
 /* The actual styles should be defined in altaris.scss */
 .altaris {
-  @include addons;
-
-  // Include mytheme theme styles in your theme
   @include altaris;
+}
+
+.v-generated-body, body {
+  margin:0;
+  padding:0;
+  width: auto;
+  background: #e6e6e6;
 }
