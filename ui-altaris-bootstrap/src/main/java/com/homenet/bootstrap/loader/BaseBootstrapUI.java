@@ -1,4 +1,4 @@
-package com.homenet.bootstrap;
+package com.homenet.bootstrap.loader;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -10,8 +10,7 @@ import com.vaadin.ui.*;
 
 @Theme("altaris")
 @SuppressWarnings("serial")
-public class BaseBootstrapUI extends UI
-{
+public class BaseBootstrapUI extends UI {
 
     @WebServlet(value = "/*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = BaseBootstrapUI.class, widgetset = "com.homenet.bootstrap.BaseWidgetSet")
@@ -30,7 +29,11 @@ public class BaseBootstrapUI extends UI
         baseLayout.setStyleName("a-base-layout");
     }
 
-    private Component getLoginForm(){
+    CustomLayout getBaseLayout() {
+        return baseLayout;
+    }
+
+    private Component getLoginForm() {
         Panel panel = new Panel("Login");
         panel.setSizeUndefined();
 
