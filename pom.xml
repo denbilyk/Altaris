@@ -16,6 +16,7 @@
 
     <modules>
         <module>ui-altaris-bootstrap</module>
+        <module>demo-application</module>
     </modules>
 
     <dependencyManagement>
