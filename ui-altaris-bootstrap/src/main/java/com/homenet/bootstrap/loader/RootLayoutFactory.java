@@ -1,35 +1,32 @@
 package com.homenet.bootstrap.loader;
 
 
+import com.vaadin.server.FileResource;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.CustomLayout;
-import com.vaadin.ui.Layout;
-import com.vaadin.ui.UI;
+import com.vaadin.ui.Image;
+
+import java.io.File;
 
 public class RootLayoutFactory {
-    private static CustomLayout layout;
+    private CustomLayout rootLayout;
 
-    public static LayoutBuilder getBuilder() {
-        return new LayoutBuilder();
-    }
-    public static class LayoutBuilder {
-      private static LayoutBuilder builder;
-        public static LayoutBuilder customizeLogo( ){
-           return builder;
-        }
+    protected RootLayoutFactory() {
 
     }
 
-    public static Layout build(){
-        try {
-            UI ui = UI.getCurrent();
-            if (ui != null && ui instanceof BaseBootstrapUI) {
-                BaseBootstrapUI uib = (BaseBootstrapUI) ui;
-                layout = uib.getBaseLayout();
-            }
-        } catch (Exception e) {
-
-        }
-        return layout;
+    public void setCompositionPage(Component page) {
+        rootLayout.addComponent(page, "content");
     }
+
+    void setRootlayout(CustomLayout rootLayout) {
+        this.rootLayout = rootLayout;
+    }
+
+    public void customizeLogo(File url) {
+        Image image = new Image("", new FileResource(url));
+        rootLayout.addComponent(image, "ui-logo");
+    }
+
 }
 

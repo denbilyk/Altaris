@@ -12,10 +12,10 @@ import com.vaadin.ui.*;
 @SuppressWarnings("serial")
 public class BaseBootstrapUI extends UI {
 
-    @WebServlet(value = "/*", asyncSupported = true)
+/*    @WebServlet(value = "*//*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = BaseBootstrapUI.class, widgetset = "com.homenet.bootstrap.BaseWidgetSet")
     public static class Servlet extends VaadinServlet {
-    }
+    }*/
 
     private final CssLayout baseView = new CssLayout();
     private final CustomLayout baseLayout = new CustomLayout("baseLayout");
@@ -27,6 +27,8 @@ public class BaseBootstrapUI extends UI {
         setContent(baseView);
         baseView.addComponent(baseLayout);
         baseLayout.setStyleName("a-base-layout");
+        RootLayoutFactory factory = new RootLayoutFactory();
+        factory.setRootlayout(baseLayout);
     }
 
     CustomLayout getBaseLayout() {

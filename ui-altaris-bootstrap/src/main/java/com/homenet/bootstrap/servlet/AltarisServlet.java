@@ -10,9 +10,8 @@ public class AltarisServlet extends VaadinServlet {
 
     @Override
     protected DeploymentConfiguration createDeploymentConfiguration(Properties initParameters) {
-        initParameters.setProperty("ui", "BaseBootstrapUI");
+        initParameters.setProperty("ui", "com.homenet.bootstrap.loader.BaseBootstrapUI");
         initParameters.setProperty("widgetset", "com.homenet.bootstrap.BaseWidgetSet");
-        initParameters.setProperty("productionMode", "false");
         return super.createDeploymentConfiguration(initParameters);
     }
 
