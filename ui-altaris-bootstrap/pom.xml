@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>ui-altaris-bootstarap</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>Altaris UI</name>
 
     <dependencies>
@@ -46,6 +46,12 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.9-RC1</version>
         </dependency>
 
     </dependencies>

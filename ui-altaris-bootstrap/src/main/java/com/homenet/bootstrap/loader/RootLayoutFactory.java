@@ -11,16 +11,12 @@ import java.io.File;
 public class RootLayoutFactory {
     private CustomLayout rootLayout;
 
-    protected RootLayoutFactory() {
-
+    protected RootLayoutFactory(CustomLayout customLayout) {
+       this.rootLayout = customLayout;
     }
 
     public void setCompositionPage(Component page) {
         rootLayout.addComponent(page, "content");
-    }
-
-    void setRootlayout(CustomLayout rootLayout) {
-        this.rootLayout = rootLayout;
     }
 
     public void customizeLogo(File url) {
