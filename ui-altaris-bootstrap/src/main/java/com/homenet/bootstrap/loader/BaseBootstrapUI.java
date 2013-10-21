@@ -8,6 +8,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
 import org.reflections.Reflections;
+import org.vaadin.cssinject.CSSInject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,11 +27,13 @@ public class BaseBootstrapUI extends UI {
 
     private static final String BASE_LAYOUT_STREAM = "baseLayout";
     private Map<String, InputStream> resources = new HashMap<String, InputStream>();
+    private CSSInject cssInject;
 
     @Override
     protected void init(VaadinRequest request) {
         try {
             loadResources();
+            cssInject = new CSSInject(getUI());
             CssLayout baseView = new CssLayout();
             CustomLayout baseLayout = new CustomLayout(resources.get(BASE_LAYOUT_STREAM));
             baseView.setSizeUndefined();
@@ -43,7 +46,7 @@ public class BaseBootstrapUI extends UI {
             Set<Class<? extends UIRootLoader>> subTypes = reflections.getSubTypesOf(UIRootLoader.class);
             for (Class<? extends UIRootLoader> subType : subTypes) {
                 UIRootLoader uiRootLoader = subType.newInstance();
-                uiRootLoader.getRootFactory(new RootLayoutFactory(baseLayout));
+                uiRootLoader.getRootFactory(new RootLayoutFactory(baseLayout, cssInject));
             }
 
         } catch (IOException e) {
