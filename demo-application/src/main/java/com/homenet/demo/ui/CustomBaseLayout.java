@@ -23,8 +23,8 @@ public class CustomBaseLayout implements UIRootLoader {
         InputStream cssSource = getClass().getResourceAsStream("/styles/styles.css");
         factory.addCSSSource(cssSource);
         factory.customizeTopMenuCol2(comp);
-        factory.customizeTopMenuCol3(comp);
-        factory.customizeTopMenuCol4(comp);
+        factory.customizeTopMenuCol3(new Label("MenuItem3"));
+        factory.customizeTopMenuCol4(new Label("MenuItem4"));
 
     }
 
